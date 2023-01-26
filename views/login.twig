@@ -1,0 +1,40 @@
+<form action="/login/password" method="post">
+    <h1 class="heading">Login Page</h1>
+    <section>
+        <label for="username">Username : </label>
+        <input id="username" name="username" type="text" autocomplete="username" required autofocus>
+        <small id="usernameValidation"></small>
+    </section>
+    <section>
+        <label for="password">Password : </label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <small id="passwordValidation"></small>
+    </section>
+    <div class="button">
+    <button type="submit" onclick="return Validate()">Sign in</button>
+     <button>
+           <a href= '/signup'>Sign up</a>
+    </button>
+    </div>
+</form>
+
+<script>
+function Validate() {
+       const Username = document.getElementById('username').value;
+       if(Username == "" || Username == null) {
+        document.getElementById("usernameValidation").innerHTML = "Please Enter Name";
+        document.getElementById("username").focus();
+        return false;
+       } else {
+        document.getElementById("usernameValidation").innerHTML = "";
+       }
+        const Password = document.getElementById("password").value;
+        if(Password == "" || Password == null){
+          document.getElementById("passwordValidation").innerHTML = "Please Enter Password";
+          return false;
+        }else{
+            document.getElementById("passwordValidation").innerHTML = "";
+        } 
+        return true;
+}       
+</script>
